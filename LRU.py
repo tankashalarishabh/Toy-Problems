@@ -14,9 +14,20 @@ class LinkedList:
 
 class LRU:
     def init__(self, co):
-        self.co = 0;
+        self.co = 0
     def put(self,data):
+        if(self.co >= 4):
 
+        elif self.co == 0:
+            ll.head = Node(data);
+            self.co++;
+        else:
+            temp = head
+            for i in range(self.co):
+                temp = temp.next
+            temp = Node(data)
+            self.co++
+            
     def get_cache(self):
 
-    def get(self):
+    def get(self, c):
