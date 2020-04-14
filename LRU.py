@@ -13,38 +13,72 @@ class LinkedList:
         self.head = None
 
 class LRU:
-    def init__(self, co):
+    def __init__(self):
         self.co = 0
-    def put(self,data):
-        if(has(data) == False):
-            if(self.co >= 4):
-                temp = head.next
-                head = temp
-                temp = head
-                for i in range(3):
-                    temp = temp.next
-                temp = Node(data)
-            elif self.co == 0:
-                ll.head = Node(data);
-                self.co++;
-            else:
-                temp = head
-                for i in range(self.co):
-                    temp = temp.next
-                temp = Node(data)
-                self.co++
-        else:
 
     def has(self, data):
-        if(head.data == data):
+        if(ll.head == None):
+            return False
+        elif(ll.head.data == data):
             return True
-        temp = head.next
-        for i in range(self.co - 1):
+        temp = ll.head.next
+        while(temp):
             if(temp.data == data):
                 return True
             temp = temp.next
         return False
+
+    def dell(self, temp, data):
+            temp = ll.head
+            temp1 = ll.head
+            if ll.head.data == data:
+                ll.head = ll.head.next
+            coun = 0
+            while(temp):
+                if temp.data == data:
+                    break;
+                temp = temp.next
+                coun+=1
+            for i in range(coun - 1):
+                temp1 = temp1.next
+
+    def put(self,data):
+        if(self.has(data) == False):
+            if(self.co >= 4):
+                temp = ll.head.next
+                ll.head = temp
+                temp = ll.head
+                while(temp.next):
+                    temp = temp.next
+                temp.next = Node(data)
+            elif self.co == 0:
+                ll.head = Node(data);
+                self.co+=1
+            else:
+                temp = ll.head
+                while(temp.next):
+                    temp = temp.next
+                temp.next = Node(data)
+                self.co+=1
+        else:
+            temp = ll.head
+            self.dell(temp, data)
+            self.put(data)
         
     def get_cache(self):
-
-    def get(self, c):
+        temp = ll.head 
+        while (temp): 
+            print(temp.data)
+            temp = temp.next
+    # def get(self, c):
+if __name__ == '__main__':
+    ll = LinkedList()    
+    obj = LRU()
+    obj.put(1)
+    obj.put(2)
+    obj.put(1)
+    # obj.put(4)
+    # obj.put(5)
+    # obj.put(6)
+    # obj.put(7)
+    obj.get_cache()
