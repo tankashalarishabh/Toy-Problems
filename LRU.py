@@ -63,6 +63,7 @@ class LRU:
         else:
             temp = ll.head
             self.dell(temp, data)
+            self.co-=1
             self.put(data)
         
     def get_cache(self):
@@ -77,8 +78,8 @@ if __name__ == '__main__':
     obj.put(1)
     obj.put(2)
     obj.put(1)
-    # obj.put(4)
-    # obj.put(5)
-    # obj.put(6)
+    obj.put(4)
+    obj.put(5)
+    obj.put(2)
     # obj.put(7)
     obj.get_cache()
